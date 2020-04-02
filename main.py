@@ -5,6 +5,9 @@ import base64
 
 class Randomizer:
     MAX_VALUE = 10**100
+    if os.path.exists('.settings') and os.path.isfile('.settings'):
+        with open('.settings') as f:
+            MAX_VALUE = int(f.read().strip())
 
     @staticmethod
     def random_string(n: int = None):
